@@ -43,7 +43,7 @@ public class LibroController {
         newLibro.setFechaPublicacion(libro.getFechaPublicacion());
         return new ResponseEntity<>(
                 iLibroService.guardarLibro(newLibro),
-                HttpStatus.CREATED);
+                HttpStatus.OK);
     }
 
 
