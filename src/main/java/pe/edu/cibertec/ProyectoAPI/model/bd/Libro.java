@@ -1,5 +1,7 @@
 package pe.edu.cibertec.ProyectoAPI.model.bd;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -36,9 +38,13 @@ public class Libro {
     @Column(name = "genero", length = 30, nullable = false)
     private String genero;
 
+    @JsonIgnore
+    @JsonManagedReference
     @OneToMany(mappedBy = "libro", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<DetalleCompra> detallescompra;
 
+    @JsonIgnore
+    @JsonManagedReference
     @OneToMany(mappedBy = "lib", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Inventario> inventarios;
 }

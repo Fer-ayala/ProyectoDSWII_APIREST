@@ -1,7 +1,7 @@
+drop database bdprueba;
+
 create database BDPrueba;
 use bdprueba;
-
-drop database bdprueba;
 
 CREATE TABLE `cliente` (
   `idcliente` int NOT NULL AUTO_INCREMENT,

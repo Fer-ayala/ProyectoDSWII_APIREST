@@ -1,4 +1,5 @@
 package pe.edu.cibertec.ProyectoAPI.model.bd;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -37,6 +38,7 @@ public class Empleado {
     @Column(name = "fechacontratacion", nullable = false)
     private Date fechaContratacion;
 
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "idrol")
     private Rol rol;

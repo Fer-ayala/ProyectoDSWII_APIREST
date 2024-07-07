@@ -1,4 +1,5 @@
 package pe.edu.cibertec.ProyectoAPI.model.bd;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -23,10 +24,12 @@ public class DetalleCompra {
     @Column(name = "preciounitario")
     private Double precioUnitario;
 
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "idcompra")
     private Compra compra;
 
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "idlibro")
     private Libro libro;

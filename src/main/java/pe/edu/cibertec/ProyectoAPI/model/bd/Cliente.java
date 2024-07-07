@@ -1,5 +1,6 @@
 package pe.edu.cibertec.ProyectoAPI.model.bd;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -34,6 +35,7 @@ public class Cliente {
     @Column(name = "correoelectronico", length = 40)
     private String correoElectronico;
 
+    @JsonManagedReference
     @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<Compra> compras;
 }

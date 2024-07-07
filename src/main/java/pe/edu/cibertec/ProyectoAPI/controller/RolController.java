@@ -16,6 +16,7 @@ public class RolController {
 
     private IRolService iRolService;
 
+    @GetMapping("/listar")
     public List<Rol> listarRoles(){
         return iRolService.obtenerRoles();
     }

@@ -1,5 +1,6 @@
 package pe.edu.cibertec.ProyectoAPI.model.bd;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -25,6 +26,7 @@ public class Inventario {
     @Column(name = "fechaultimaactualizacion", nullable = false)
     private Date fechaUltimaActualizacion;
 
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "idlibro")
     private Libro lib;

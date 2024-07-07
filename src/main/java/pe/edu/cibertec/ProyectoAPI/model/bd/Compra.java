@@ -1,4 +1,6 @@
 package pe.edu.cibertec.ProyectoAPI.model.bd;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -26,9 +28,11 @@ public class Compra {
     @Column(name = "montocompra")
     private Double montoCompra;
 
+    @JsonManagedReference
     @OneToMany(mappedBy = "compra", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<DetalleCompra> detallecompras;
 
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "idcliente")
     private Cliente cliente;

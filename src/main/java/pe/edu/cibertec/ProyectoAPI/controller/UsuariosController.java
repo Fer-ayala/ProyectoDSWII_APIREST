@@ -17,7 +17,8 @@ public class UsuariosController {
 
     private UsuarioService usuarioService;
 
-    @GetMapping("")
+    @PreAuthorize("hasRole('ADMIN')")
+    @GetMapping("/listar")
     public List<Usuario> listarUsuarios(){
         return usuarioService.obtenerUsuarios();
     }
