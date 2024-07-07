@@ -1,9 +1,10 @@
 package pe.edu.cibertec.ProyectoAPI.controller;
 
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.apache.coyote.Response;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 import pe.edu.cibertec.ProyectoAPI.model.bd.Cliente;
 import pe.edu.cibertec.ProyectoAPI.service.IClienteService;
 
@@ -20,5 +21,10 @@ public class ClienteController {
     public List<Cliente> listarClientes(){
         return iClienteService.obtenerClientes();
     };
+
+    @PostMapping("registrar")
+    public ResponseEntity<Cliente> agregarCliente(@RequestBody Cliente cliente){
+        return new ResponseEntity<>(iClienteService.guardarCliente(cliente), HttpStatus.OK);
+    }
 
 }

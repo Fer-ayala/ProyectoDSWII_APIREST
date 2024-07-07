@@ -201,6 +201,7 @@ INSERT INTO `detallecompra` (`cantidad`, `idcompra`, `idlibro`, `preciounitario`
 VALUES (2, 10, 10, 17.95);
 
 select * from usuario;
+select * from libro;
 
 # contraseña = 123, nomusuario = admin
 update usuario

@@ -10,6 +10,7 @@ import pe.edu.cibertec.ProyectoAPI.service.IInventarioService;
 
 import java.util.List;
 
+@PreAuthorize("hasRole('ADMIN')")
 @AllArgsConstructor
 @RestController
 @RequestMapping(path = "api/v1/inventario")
@@ -17,7 +18,6 @@ public class InventarioController {
 
     private IInventarioService iInventarioService;
 
-    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/listar")
     public List<Inventario> listarInventario(){
         return iInventarioService.obtenerInventarios();
